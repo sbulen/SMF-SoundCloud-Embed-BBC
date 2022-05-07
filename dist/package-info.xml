@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<name>SoundCloud Embed Widget</name>
+	<id>shawnb61:SoundCloudEmbed</id>
+	<version>1.0</version>
+	<type>modification</type>
+	<install for="2.1.1-2.1.99">
+		<readme type="file" parsebbc="true">readme.txt</readme> 
+		<require-dir name="Sources" destination="$boarddir"/>
+        <require-dir name="Themes" destination="$boarddir"/>
+		<hook hook="integrate_bbc_codes" function="soundcloud_embed_bbc_codes" file="$sourcedir/SoundCloudEmbedHooks.php" />
+		<hook hook="integrate_bbc_buttons" function="soundcloud_embed_bbc_buttons" file="$sourcedir/SoundCloudEmbedHooks.php" />
+	</install>	
+	<uninstall for="2.1.1-2.1.99">
+		<hook hook="integrate_bbc_codes" function="soundcloud_embed_bbc_codes" file="$sourcedir/SoundCloudEmbedHooks.php" reverse="true" />
+		<hook hook="integrate_bbc_buttons" function="soundcloud_embed_bbc_buttons" file="$sourcedir/SoundCloudEmbedHooks.php" reverse="true" />
+		<remove-file name="$sourcedir/SoundCloudEmbedHooks.php" />
+		<remove-file name="$themedir/images/bbc/soundcloud.png" />
+	</uninstall>
+</package-info>
