@@ -73,7 +73,7 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 			$artist = $parts[1];
 			$track = $parts[2];
 
-			$tag['content'] = '<iframe width="95%" height="128" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' .
+			$tag['content'] = '<iframe width="100%" height="130" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' .
 				$whole_url .
 				'&color=%237c6c64&auto_play=false&sharing=false&download=false&show_playcount=false&show_artwork=true"></iframe>' .
 				'<div style="font-size:10px;color:#cccccc;line-break:anywhere;word-break:normal;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:100;">' .
