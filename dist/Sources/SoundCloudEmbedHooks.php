@@ -73,11 +73,11 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 			$artist = $parts[1];
 			$track = $parts[2];
 
-			$tag['content'] = '<iframe width="90%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' .
+			$tag['content'] = '<iframe width="95%" height="128" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' .
 				$whole_url .
-				'&color=%237c6c64&auto_play=false&sharing=false&download=false&visual=false&show_comments=false&show_playcount=false&liking=false&show_artwork=true"></iframe>' . 
-				'<div style="font-size:10px;color:#cccccc;line-break:anywhere;word-break:normal;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:100;">' . 
-				'<a href="https://soundcloud.com/' . $artist . '" title="' . $artist . '" target="_blank" style="color: #cccccc; text-decoration: none;">' . $artist . '</a> · ' . 
+				'&color=%237c6c64&auto_play=false&sharing=false&download=false&show_playcount=false&show_artwork=true"></iframe>' .
+				'<div style="font-size:10px;color:#cccccc;line-break:anywhere;word-break:normal;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:100;">' .
+				'<a href="https://soundcloud.com/' . $artist . '" title="' . $artist . '" target="_blank" style="color: #cccccc; text-decoration: none;">' . $artist . '</a> · ' .
 				'<a href="' . $whole_url . '" title="' . $track . '" target="_blank" style="color: #cccccc; text-decoration: none;">' . $track . '</a></div>';
 		}
 	}
