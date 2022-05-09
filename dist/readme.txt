@@ -4,4 +4,4 @@ The SoundCloud Embed Widget mod lets you play SoundCloud files on your site via 
 This is a simple BBC addition, and the BBC generated is compatible with the similar SMF 2.0 mod.
 
 [b]Releases:[/b]
- - v1.2 Initial public release
+ - v1.3 Initial public release

@@ -44,8 +44,6 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 	{
 		function soundcloud_bbc_validate(&$tag, &$data)
 		{
-			global $txt, $modSettings;
-			
 			if (empty($data))
 			{
 				$tag['content'] = '';
@@ -77,8 +75,8 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 				$whole_url .
 				'&color=%237c6c64&auto_play=false&sharing=false&download=false&show_playcount=false&show_artwork=true"></iframe>' .
 				'<div style="font-size:10px;color:#cccccc;line-break:anywhere;word-break:normal;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:100;">' .
-				'<a href="https://soundcloud.com/' . $artist . '" title="' . $artist . '" target="_blank" style="color: #cccccc; text-decoration: none;">' . $artist . '</a> · ' .
-				'<a href="' . $whole_url . '" title="' . $track . '" target="_blank" style="color: #cccccc; text-decoration: none;">' . $track . '</a></div>';
+				'<a href="https://soundcloud.com/' . $artist . '" title="' . $artist . '" target="_blank" style="color:#cccccc;text-decoration:none;">' . $artist . '</a> · ' .
+				'<a href="' . $whole_url . '" title="' . $track . '" target="_blank" style="color:#cccccc;text-decoration:none;">' . $track . '</a></div>';
 		}
 	}
 
