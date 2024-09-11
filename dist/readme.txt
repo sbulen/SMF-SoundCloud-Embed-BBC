@@ -5,3 +5,4 @@ This is a simple BBC addition, and the BBC generated is compatible with the simi
 
 [b]Releases:[/b]
  - v1.3 Initial public release
+ - v1.3.1 Better icon
