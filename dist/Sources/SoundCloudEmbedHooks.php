@@ -59,9 +59,9 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 			if (stripos($data, 'https://') === false)
 				$data = 'https://' . $data;
 
-			// 0 = all; 1 = artist; 2 = track
+			// 0 = all; 1 = artist; 2 = type; 3 = track/list
 			// Note this discards content after the '?' if there is any
-			$pattern = '~^https://soundcloud\.com/([^/]+)/([^?]+)~i';
+			$pattern = '~^https://soundcloud\.com/([^/]+)(/sets)?/([^?]+)~i';
 			if (preg_match($pattern, $data, $parts) == false)
 			{
 				$tag['content'] = $old_data;
@@ -69,9 +69,10 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 			}
 			$whole_url = $parts[0];
 			$artist = $parts[1];
-			$track = $parts[2];
+			$height = empty($parts[2]) ? '130' : '350';
+			$track = $parts[3];
 
-			$tag['content'] = '<iframe width="100%" height="130" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' .
+			$tag['content'] = '<iframe width="100%" height="'. $height . '" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' .
 				$whole_url .
 				'&color=%237c6c64&auto_play=false&sharing=false&download=false&show_playcount=false&show_artwork=true"></iframe>' .
 				'<div style="font-size:10px;color:#cccccc;line-break:anywhere;word-break:normal;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:100;">' .
@@ -82,6 +83,12 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 
 	$bbc_codes[] = array(
 		'tag' => 'soundcloud',
+		'type' => 'unparsed_content',
+		'validate' => 'soundcloud_bbc_validate',
+		'block_level' => true
+	);
+	$bbc_codes[] = array(
+		'tag' => 'cloudset',
 		'type' => 'unparsed_content',
 		'validate' => 'soundcloud_bbc_validate',
 		'block_level' => true
