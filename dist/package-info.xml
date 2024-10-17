@@ -3,7 +3,7 @@
 <package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
 	<name>SoundCloud Embed Widget</name>
 	<id>shawnb61:SoundCloudEmbed</id>
-	<version>1.4.0</version>
+	<version>1.5.0</version>
 	<type>modification</type>
 	<install for="2.1.1-2.1.99">
 		<readme type="file" parsebbc="true">readme.txt</readme> 

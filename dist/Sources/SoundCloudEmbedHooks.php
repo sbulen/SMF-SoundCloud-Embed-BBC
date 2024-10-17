@@ -63,9 +63,9 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 			if (stripos($data, 'https://') === false)
 				$data = 'https://' . $data;
 
-			// 0 = all; 1 = artist; 2 = type; 3 = track/list
+			// 0 = all; 1 = artist; 2 = type (set if playlist); 3 = track/list name
 			// Note this discards content after the '?' if there is any
-			$pattern = '~^https://soundcloud\.com/([^/]+)(/sets)?/([^?]+)~i';
+			$pattern = '~^https://soundcloud\.com/([^/]+)(/sets|/tracks)?(?:/|)([^?]+)?~i';
 			if (preg_match($pattern, $data, $parts) == false)
 			{
 				$tag['content'] = $old_data;
@@ -73,15 +73,18 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 			}
 			$whole_url = $parts[0];
 			$artist = $parts[1];
-			$height = empty($parts[2]) ? '130' : '350';
-			$track = $parts[3];
+			$track = empty($parts[3]) ? '' : $parts[3];
+
+			// Tracks need minimal height; artist links & playlists need more height to allow for list...
+			$height = empty($parts[2]) && !empty($track) ? '130' : '350';
 
 			$tag['content'] = '<iframe width="100%" height="'. $height . '" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=' .
 				$whole_url .
 				'&color=%237c6c64&auto_play=false&sharing=false&download=false&show_playcount=false&show_artwork=true"></iframe>' .
 				'<div style="font-size:10px;color:#cccccc;line-break:anywhere;word-break:normal;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-family:Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight:100;">' .
-				'<a href="https://soundcloud.com/' . $artist . '" title="' . $artist . '" target="_blank" style="color:#cccccc;text-decoration:none;">' . $artist . '</a> · ' .
-				'<a href="' . $whole_url . '" title="' . $track . '" target="_blank" style="color:#cccccc;text-decoration:none;">' . $track . '</a></div>';
+				'<a href="https://soundcloud.com/' . $artist . '" title="' . $artist . '" target="_blank" style="color:#cccccc;text-decoration:none;">' . $artist . '</a>' .
+				(empty($track) ? '' : ' · <a href="' . $whole_url . '" title="' . $track . '" target="_blank" style="color:#cccccc;text-decoration:none;">' . $track . '</a>') .
+				'</div>';
 		}
 	}
 
