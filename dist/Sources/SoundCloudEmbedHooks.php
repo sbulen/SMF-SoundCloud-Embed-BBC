@@ -50,10 +50,14 @@ function soundcloud_embed_bbc_codes(&$bbc_codes)
 				return;
 			}
 
+			// Need to restore everything if match fails
 			$old_data = $data;
 
-			// Clean up scheme; always go https
+			// Trim it...  Even the br tags that may have been added along the way...
 			$data = trim($data);
+			$data = str_replace('<br>', '', $data);
+
+			// Clean up scheme; always go https
 			if (stripos($data, 'http://') === 0)
 				$data = 'https://' . substr($data, 7);
 			if (stripos($data, 'https://') === false)
